@@ -137,8 +137,8 @@ import Button from "@mui/material/Button";
 import { Avatar, Box, IconButton, Stack, Typography } from "@mui/material";
 import { deepOrange } from "@mui/material/colors";
 import img from "../../assets/images/i.jpg";
-import video2 from "../../assets/videos/video1.mp4";
-import video3 from "../../assets/videos/v4.mp4";
+// import video2 from "../../assets/videos/video1.mp4";
+// import video3 from "../../assets/videos/v4.mp4";
 
 import { useNavigate } from "react-router-dom";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";

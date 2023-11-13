@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { MentionsInput, Mention } from 'react-mentions';
+import React, { useState } from "react";
+import { MentionsInput, Mention } from "react-mentions";
 
 const UserMentionsExample = () => {
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
   const userSuggestions = [
-    { id: 1, display: 'John Doe' },
-    { id: 2, display: 'Jane Smith' },
-    { id: 3, display: 'Alice Johnson' },
+    { id: 1, display: "John Doe" },
+    { id: 2, display: "Jane Smith" },
+    { id: 3, display: "Alice Johnson" },
   ];
 
   const handleInputChange = (event, newValue, newPlainTextValue, mentions) => {
@@ -19,7 +19,7 @@ const UserMentionsExample = () => {
       <MentionsInput
         value={inputValue}
         onChange={handleInputChange}
-        style={{ width: '100%', padding: '10px', fontSize: '16px' }}
+        style={{ width: "100%", padding: "10px", fontSize: "16px" }}
       >
         <Mention
           trigger="@"

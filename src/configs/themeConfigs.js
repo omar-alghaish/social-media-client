@@ -56,14 +56,14 @@ const themeConfigs = {
           styleOverrides: {
             root: {
               "& .MuiFilledInput-root": {
-                backgroundColor: "", // Change this to your desired filled input background color
+                backgroundColor: "", 
               },
               "& .MuiOutlinedInput-root": {
                 "&:hover fieldset": {
-                  borderColor: "", // Change this to your desired hover outline color
+                  borderColor: "", 
                 },
                 "&.Mui-focused fieldset": {
-                  borderColor: "", // Change this to your desired focused outline color
+                  borderColor: "",
                 },
               },
             },

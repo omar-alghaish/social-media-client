@@ -2,11 +2,11 @@ import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Real from "./Real";
 import { Keyboard, Pagination, Navigation } from "swiper/modules";
-import video2 from "../../assets/videos/video1.mp4";
-import video3 from "../../assets/videos/v4.mp4";
+// import video2 from "../../assets/videos/video1.mp4";
+// import video3 from "../../assets/videos/v4.mp4";
 const videoSources = [
-  { src: video2, type: "video/mp4" },
-  { src: video3, type: "video/mp4" },
+  // { src: video2, type: "video/mp4" },
+  // { src: video3, type: "video/mp4" },
   // Add more video sources as needed
 ];
 
