@@ -1,18 +1,11 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-const ProtectedPage = ({children}) => {
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+const ProtectedPage = ({ children }) => {
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.user);
+  useEffect(() => {}, [user, dispatch]);
 
-    const dispatch = useDispatch()
-    const {user} = useSelector((state)=> state.user);
-console.log(user)
-    useEffect(() => {
-      //  dispatch(setAuthModalOpen(!user))
-      
-    }, [user, dispatch])
-    
-  return (
-    user ? children : null
-  )
-}
+  return user ? children : null;
+};
 
-export default ProtectedPage
+export default ProtectedPage;

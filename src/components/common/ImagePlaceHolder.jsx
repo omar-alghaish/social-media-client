@@ -21,7 +21,6 @@ const ImagePlaceHolder = ({ form }) => {
     <Box
       variant="text"
       component="label"
-      
       sx={{
         width: "70px",
         height: "70px",
@@ -30,9 +29,9 @@ const ImagePlaceHolder = ({ form }) => {
       style={{ cursor: "pointer" }}
     >
       {image ? (
-        <Avatar sx={{height:"70px", width:"70px"}} src={image}/>
+        <Avatar sx={{ height: "70px", width: "70px" }} src={image} />
       ) : (
-        <Avatar sx={{height:"70px", width:"70px"}}  />
+        <Avatar sx={{ height: "70px", width: "70px" }} />
       )}
 
       <input

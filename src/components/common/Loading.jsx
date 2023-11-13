@@ -6,7 +6,7 @@ const Loading = () => {
     <Stack
       sx={{
         width: "500px",
-        maxWidth:"100%",
+        maxWidth: "100%",
         height: "400px",
         alignItems: "center",
         justifyContent: "center",

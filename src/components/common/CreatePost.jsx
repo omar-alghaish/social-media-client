@@ -21,15 +21,11 @@ import {
 } from "../../redux/features/creatPostModalSlice";
 import ReactPlayer from "react-player";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-
-import AudioPlayer from "react-h5-audio-player";
-import TextWithTags from "./TextWithTags";
+import { Pagination } from "swiper/modules";
 
 const CreatePost = () => {
   const { createPostModalOpen } = useSelector((state) => state.createPost);
   const [mediaList, setMediaList] = useState([]);
-  const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const theme = useTheme();
@@ -57,7 +53,6 @@ const CreatePost = () => {
         for (let i = 0; i < values.media.length; i++) {
           formData.append("media", values.media[i]);
         }
-        // Send POST request to the server
         const { response, error } = await postApi.createPost(formData);
         setIsLoading(false);
         if (response) {
@@ -92,7 +87,6 @@ const CreatePost = () => {
       >
         <Stack spacing={2} direction="column">
           <TextField
-            // id="outlined-textarea"
             placeholder="content"
             multiline
             type="text"
@@ -104,7 +98,9 @@ const CreatePost = () => {
               PostForm.touched.content && PostForm.errors.content !== undefined
             }
             helperText={PostForm.touched.content && PostForm.errors.content}
-          >  </TextField>
+          >
+            {" "}
+          </TextField>
           <Box
             variant="text"
             component="label"
@@ -122,10 +118,7 @@ const CreatePost = () => {
               type="file"
               hidden
               onChange={(event) => {
-                // Get selected files from the event
                 const selectedFiles = event.currentTarget.files;
-
-                // Convert the selected files to an array of objects with url and type properties
                 const filesArray = Array.from(selectedFiles).map((file) => {
                   return {
                     url: URL.createObjectURL(file),
@@ -187,10 +180,8 @@ const CreatePost = () => {
             <LoadingButton
               sx={{ borderRadius: "20px" }}
               type="submit"
-              // fullWidth
               size="large"
               variant="contained"
-              // sx={{ marginTop: 4 }}
               loading={isLoading}
             >
               create

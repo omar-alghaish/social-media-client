@@ -19,12 +19,9 @@ import Logo from "./Logo";
 import { Link, useNavigate } from "react-router-dom";
 
 const SigninForm = () => {
-  const [isLoginRequest, setIsLoginRequest] = useState(false);
   const [errorMessage, setErrorMessage] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  const theme = useTheme();
-  const navigate = useNavigate()
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const signinForm = useFormik({
@@ -53,7 +50,7 @@ const SigninForm = () => {
       if (response) {
         signinForm.resetForm();
         dispatch(setUser(response));
-        navigate(`/users/${response.data._id}`)
+        navigate(`/users/${response.data._id}`);
       }
       if (error) setErrorMessage(error.message);
     },
@@ -65,7 +62,6 @@ const SigninForm = () => {
       component="form"
       enctype="multipart/form-data"
       onSubmit={signinForm.handleSubmit}
-      // sx={{ justifyContent: "center" }}
     >
       <Stack
         direction="row"
@@ -135,7 +131,7 @@ const SigninForm = () => {
           sign up
         </Button>
       </Stack>
-      <Stack direction="row" >
+      <Stack direction="row">
         <Button component={Link} to="/forgetpassword">
           forget password
         </Button>

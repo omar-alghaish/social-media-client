@@ -2,14 +2,6 @@ import { useEffect, useState } from "react";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import postApi from "../../api/modules/postApi";
-
-import ReactPlayer from "react-player";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-
-import AudioPlayer from "react-h5-audio-player";
-import TextWithTags from "./TextWithTags";
 import { LoadingButton } from "@mui/lab";
 import {
   Alert,
@@ -18,11 +10,8 @@ import {
   FormControl,
   InputLabel,
   MenuItem,
-  Modal,
   Select,
   Stack,
-  TextField,
-  Typography,
   useTheme,
 } from "@mui/material";
 import { useFormik } from "formik";
@@ -36,15 +25,11 @@ const StoryForm = () => {
   const { createStoryModalOpen, objects, image } = useSelector(
     (state) => state.createStory
   );
-  console.log(image);
-  const [mediaList, setMediaList] = useState([]);
-  const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const theme = useTheme();
 
   const dispatch = useDispatch();
-  console.log(objects);
 
   const StoryForm = useFormik({
     initialValues: {
@@ -92,20 +77,18 @@ const StoryForm = () => {
   return (
     <div
       open={createStoryModalOpen}
-      // onClose={handleClose}
       style={{
         overflow: "scroll",
-        width:"100%",
-        height:"100vh",
+        width: "100%",
+        height: "100vh",
         display: createStoryModalOpen ? "block" : "none",
-        background:"rgba(0,0,0,.3)",
-        backdropFilter:"blur(12px)",
-        position:"fixed",
-        top:0,
-        left:0,
-        zIndex:2000
+        background: "rgba(0,0,0,.3)",
+        backdropFilter: "blur(12px)",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        zIndex: 2000,
       }}
-     
     >
       <Stack
         className="create-post"
@@ -147,7 +130,7 @@ const StoryForm = () => {
               <MenuItem value={3}>3 days</MenuItem>
             </Select>
           </FormControl>
-         
+
           <ImageStory />
 
           <Stack></Stack>

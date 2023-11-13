@@ -137,12 +137,10 @@ import Button from "@mui/material/Button";
 import { Avatar, Box, IconButton, Stack, Typography } from "@mui/material";
 import { deepOrange } from "@mui/material/colors";
 import img from "../../assets/images/i.jpg";
-// import video2 from "../../assets/videos/video1.mp4";
-// import video3 from "../../assets/videos/v4.mp4";
 
 import { useNavigate } from "react-router-dom";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-const Real = ({ onTogglePlay, playing,videoSource }) => {
+const Real = ({ onTogglePlay, playing, videoSource }) => {
   const backgroundVideoRef = useRef(null);
   const realVideoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -151,21 +149,18 @@ const Real = ({ onTogglePlay, playing,videoSource }) => {
   const handleBack = () => {
     navigate(-1);
   };
-console.log(videoSource)
 
-   let timeoutId;
+  let timeoutId;
 
-    const handleMouseMovement = () => {
-      setShowControls(true);
-      clearTimeout(timeoutId);
+  const handleMouseMovement = () => {
+    setShowControls(true);
+    clearTimeout(timeoutId);
 
-      timeoutId = setTimeout(() => {
-        setShowControls(false);
-      }, 3000);
-    };
+    timeoutId = setTimeout(() => {
+      setShowControls(false);
+    }, 3000);
+  };
   useEffect(() => {
-   
-
     document.addEventListener("mousemove", handleMouseMovement);
 
     return () => {
@@ -175,7 +170,7 @@ console.log(videoSource)
   }, []);
 
   const togglePlayPause = () => {
-    handleMouseMovement()
+    handleMouseMovement();
     if (playing) {
       realVideoRef.current.pause();
       backgroundVideoRef.current.pause();
@@ -194,9 +189,9 @@ console.log(videoSource)
   return (
     <Stack className="real">
       <IconButton
-      onClick={handleBack}
+        onClick={handleBack}
         sx={{
-            margin:"10px",
+          margin: "10px",
           position: "absolute",
           zIndex: "4",
           width: "50px",
@@ -204,7 +199,7 @@ console.log(videoSource)
         }}
         color="primary"
       >
-        <ArrowBackIosIcon sx={{ml:"10px"}}/>
+        <ArrowBackIosIcon sx={{ ml: "10px" }} />
       </IconButton>
       <Box
         sx={{
@@ -239,7 +234,6 @@ console.log(videoSource)
           <PlayCircleIcon sx={{ width: "50px", height: "50px" }} />
         )}
       </Button>
-      {/* Rest of your component */}
       <Stack className={`icon-list ${showControls ? "show" : "hide"}`}>
         <FullScreenToggle />
         <Button>

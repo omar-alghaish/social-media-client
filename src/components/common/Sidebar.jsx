@@ -12,26 +12,22 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import Logo from "./Logo";
-import uiConfigs from "../../configs/ui.configs";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import PeopleIcon from "@mui/icons-material/People";
 
 import { themeModes } from "../../configs/themeConfigs";
 import { setThemeMode } from "../../redux/features/themeSlice";
-import { useState } from "react";
 import { setSideBarOpen } from "../../redux/features/sideBar";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
-  // const [open, setOpen] = useState(open)
   const { sideBarOpen } = useSelector((state) => state.sideBar);
 
   const handleClick = () => {
@@ -39,9 +35,8 @@ const Sidebar = () => {
   };
 
   const { user } = useSelector((state) => state.user);
-  const { appState } = useSelector((state) => state.appState);
   const { themeMode } = useSelector((state) => state.themeMode);
-const theme = useTheme()
+  const theme = useTheme();
 
   const onSwitchTheme = () => {
     const theme =
@@ -50,7 +45,7 @@ const theme = useTheme()
   };
 
   const drawer = (
-    <Box >
+    <Box>
       <Toolbar
         sx={{ paddingY: "20px", paddingLeft: "50px", color: "text.primary" }}
       >
@@ -114,11 +109,11 @@ const theme = useTheme()
       className="sidebar"
       sx={{
         width: 500,
-        maxWidth:"100%",
+        maxWidth: "100%",
         "& .MuiDrawer-paper": {
           background: theme.palette.background.default,
           width: 500,
-          maxWidth:"100%",
+          maxWidth: "100%",
           boxSizing: "border-box",
         },
       }}

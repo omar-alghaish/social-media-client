@@ -3,7 +3,7 @@ import React from "react";
 import ContentLoader from "react-content-loader";
 
 const ProfileCard = (props) => {
-  const theme = useTheme()
+  const theme = useTheme();
   return (
     <ContentLoader
       viewBox="0 0 100% 350"

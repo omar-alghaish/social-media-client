@@ -18,7 +18,11 @@ const FullScreenToggle = ({ style }) => {
 
   return (
     <Button onClick={handleToggleFullScreen} style={style}>
-      {isFullScreen ? <FullscreenExitIcon className="icon-button"/> : <FullscreenIcon className="icon-button"/>}
+      {isFullScreen ? (
+        <FullscreenExitIcon className="icon-button" />
+      ) : (
+        <FullscreenIcon className="icon-button" />
+      )}
     </Button>
   );
 };

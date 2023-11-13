@@ -1,7 +1,7 @@
 import publicClient from "../client/publicClient";
 import privateClient from "../client/privateClient";
 
-const userEndpoints = {
+const postEndpoints = {
   create: "posts/create",
   getUserPosts: (id) => `posts/getPosts/${id}`,
   likePost: "posts/like",
@@ -16,7 +16,7 @@ const userEndpoints = {
 const postApi = {
   createPost: async (values) => {
     try {
-      const response = await privateClient.post(userEndpoints.create, values, {
+      const response = await privateClient.post(postEndpoints.create, values, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -29,7 +29,7 @@ const postApi = {
   },
   getUserPosts: async (id) => {
     try {
-      const response = await publicClient.get(userEndpoints.getUserPosts(id));
+      const response = await publicClient.get(postEndpoints.getUserPosts(id));
 
       return { response };
     } catch (error) {
@@ -38,7 +38,7 @@ const postApi = {
   },
   likePost: async (values) => {
     try {
-      const response = await privateClient.post(userEndpoints.likePost, values);
+      const response = await privateClient.post(postEndpoints.likePost, values);
       return { response };
     } catch (error) {
       return { error };
@@ -46,7 +46,7 @@ const postApi = {
   },
   makeComment: async (values) => {
     try {
-      const response = await privateClient.post(userEndpoints.makeComment, values);
+      const response = await privateClient.post(postEndpoints.makeComment, values);
       return { response };
     } catch (error) {
       return { error };
@@ -54,7 +54,7 @@ const postApi = {
   },
   getFriendsPosts: async (id) => {
     try {
-      const response = await privateClient.get(userEndpoints.friendsPosts);
+      const response = await privateClient.get(postEndpoints.friendsPosts);
 
       return { response };
     } catch (error) {
@@ -63,7 +63,7 @@ const postApi = {
   },
   getPostsByHashtag: async (tag) => {
     try {
-      const response = await publicClient.get(userEndpoints.postByHashtag(tag));
+      const response = await publicClient.get(postEndpoints.postByHashtag(tag));
 
       return { response };
     } catch (error) {
@@ -72,7 +72,7 @@ const postApi = {
   },
   reactPost: async (values, postId)=>{
     try {
-      const response = await privateClient.post(userEndpoints.reactPost(postId), values);
+      const response = await privateClient.post(postEndpoints.reactPost(postId), values);
 
       return { response };
     } catch (error) {
@@ -81,7 +81,7 @@ const postApi = {
   },
   getSinglePost: async (postId) => {
     try {
-      const response = await publicClient.get(userEndpoints.singlePost(postId));
+      const response = await publicClient.get(postEndpoints.singlePost(postId));
 
       return { response };
     } catch (error) {

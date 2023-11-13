@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Draggable from "react-draggable";
 import SlideshowIcon from "@mui/icons-material/Slideshow";
 import CreateIcon from "@mui/icons-material/Create";
 import AddIcon from "@mui/icons-material/Add";
@@ -11,15 +10,14 @@ const HalfCircleMenu = () => {
   const dispatch = useDispatch();
   const handlePost = () => {
     dispatch(setCreatePostOpen(true));
-     document.querySelector(".radial").classList.remove("active")
+    document.querySelector(".radial").classList.remove("active");
   };
   const handleStory = () => {
     dispatch(setCreateStoryOpen(true));
-     document.querySelector(".radial").classList.remove("active")
+    document.querySelector(".radial").classList.remove("active");
   };
 
   useEffect(() => {
-    // Menu Open and Close function
     function openMenu(e) {
       e.preventDefault();
 
@@ -72,10 +70,10 @@ const HalfCircleMenu = () => {
         button.removeEventListener("click", openMenu);
       });
     };
-  }, []); // Empty dependency array ensures the effect runs once after the initial render
+  }, []);
 
   return (
-    <div >
+    <div>
       <div className="radial">
         <a className="triggerButton" href="#">
           <AddIcon />

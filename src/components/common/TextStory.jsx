@@ -1,8 +1,6 @@
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 
 import { BACKGROUND_LIST } from "../../utils/storyBackgroundList";
-
-// import classes from "./textStory.module.css";
 
 const TextStory = () => {
   const [text, setText] = useState("");

@@ -8,7 +8,6 @@ import haha from "../../assets/images/reactions/haha.gif";
 import lying from "../../assets/images/reactions/lying.gif";
 import partying from "../../assets/images/reactions/partying.gif";
 
-
 export const reacts = [
   {
     id: "like",

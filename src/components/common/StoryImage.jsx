@@ -1,9 +1,8 @@
 import { getRandomColor } from "../../utils/randomColor";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { fabric } from "fabric";
 import { FabricJSCanvas, useFabricJSEditor } from "fabricjs-react";
-import { Button } from "@mui/material";
 import { Box } from "@mui/material";
 import { useDispatch } from "react-redux";
 import {
@@ -14,7 +13,6 @@ import {
 const ImageStory = ({ image }) => {
   const [file, setFile] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [text, setText] = useState("")
   const dispatch = useDispatch();
 
   const { editor, onReady } = useFabricJSEditor();
@@ -65,8 +63,6 @@ const ImageStory = ({ image }) => {
           img.set({
             left: 0,
             top: 0,
-            // scaleX: editor?.canvas.width / img.width,
-            // scaleY: editor?.canvas.height / img.height,
           });
 
           editor?.canvas.clear();
@@ -95,7 +91,6 @@ const ImageStory = ({ image }) => {
       },
       textAlign: obj.textAlign,
       position: { left: obj.left, top: obj.top },
-      
     };
     // return objData;
     ob.push(objData);

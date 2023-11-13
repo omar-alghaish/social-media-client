@@ -25,7 +25,7 @@ import Reactions from "./Reactions";
 import TextWithTags from "./TextWithTags";
 import { Link } from "react-router-dom";
 import ShareList from "./ShareList";
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 const Img = React.lazy(() => import("./Img"));
 
 const Post = ({ data, index, socket }) => {
@@ -33,7 +33,7 @@ const Post = ({ data, index, socket }) => {
   const [shareOpen, setShareOpen] = useState(false);
   const [commentsOpen, setCommentsOpen] = useState(false);
   const { user } = useSelector((state) => state.user);
-  const theme = useTheme()
+  const theme = useTheme();
 
   const handleText = (e) => {
     e.target.classList.toggle("expanded");
@@ -43,15 +43,23 @@ const Post = ({ data, index, socket }) => {
     setCommentsOpen(!commentsOpen);
   };
 
- const handleShareOpen = ()=>{
-  setShareOpen(!shareOpen)
-  }
+  const handleShareOpen = () => {
+    setShareOpen(!shareOpen);
+  };
 
   return (
-    <Stack gap="10px" className="post" sx={{background: theme.palette.background.paper}} >
+    <Stack
+      gap="10px"
+      className="post"
+      sx={{ background: theme.palette.background.paper }}
+    >
       <Stack
         direction="row"
-        sx={{ justifyContent: "space-between", alignItems: "center" ,paddingX:"20px"}}
+        sx={{
+          justifyContent: "space-between",
+          alignItems: "center",
+          paddingX: "20px",
+        }}
       >
         <Stack
           component={Link}
@@ -63,26 +71,26 @@ const Post = ({ data, index, socket }) => {
           <Avatar src={post?.userProfile} />
           <Typography color="text.primary">{post?.userName}</Typography>
         </Stack>
-        <Stack direction="row" sx={{alignItems:"center", justifyContent:"center"}}>
+        <Stack
+          direction="row"
+          sx={{ alignItems: "center", justifyContent: "center" }}
+        >
           <Typography variant="body2" sx={{ color: "text.secondary" }}>
-          {dayjs(post.createdAt).format("DD-MM-YYYY HH:mm:ss")}
-        </Typography>
-        <IconButton onClick={handleShareOpen}>
-          <MoreVertIcon />
-        </IconButton> 
+            {dayjs(post.createdAt).format("DD-MM-YYYY HH:mm:ss")}
+          </Typography>
+          <IconButton onClick={handleShareOpen}>
+            <MoreVertIcon />
+          </IconButton>
         </Stack>
-       
       </Stack>
       <Box className="text-container">
         <Typography
           onClick={handleText}
           className="text"
           variant="body2"
-          // component="h4"
           sx={{
             color: "text.main",
             whiteSpace: "pre-line",
-            // direction: "rtl",
           }}
         >
           {post?.content && <TextWithTags text={post.content} />}
@@ -94,7 +102,6 @@ const Post = ({ data, index, socket }) => {
         slidesPerView="auto"
         grabCursor={true}
         pagination={{ clickable: true }}
-        // navigation={true}
         modules={[Navigation, Pagination]}
         style={{ width: "100%", height: "max-content" }}
       >
@@ -124,13 +131,11 @@ const Post = ({ data, index, socket }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-       <Divider /> 
+      <Divider />
       <Stack direction="row" sx={{ justifyContent: "space-between" }}>
-       
         <Box
           sx={{ position: "relative", display: "flex", alignItems: "center" }}
         >
-         
           <Reactions post={post} />
         </Box>
 
@@ -141,17 +146,20 @@ const Post = ({ data, index, socket }) => {
         >
           comment {post.comments.length || false}
         </Button>
-        <Button sx={{ color: "text.primary" }}  startIcon={<SendIcon />}>
+        <Button sx={{ color: "text.primary" }} startIcon={<SendIcon />}>
           share
         </Button>
       </Stack>
-      <ShareList shareOpen={shareOpen} handleShareOpen={handleShareOpen} data={post}/>
+      <ShareList
+        shareOpen={shareOpen}
+        handleShareOpen={handleShareOpen}
+        data={post}
+      />
       {commentsOpen ? (
         <CommentsContainer comments={post.comments} post={post} />
       ) : (
         false
       )}
-      {/* <Divider /> */}
     </Stack>
   );
 };

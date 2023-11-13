@@ -20,7 +20,7 @@ const StoriesContainer = () => {
 
   const handleClick = () => {
     dispatch(setStoryViewer(true));
-    console.log(true)
+    console.log(true);
   };
 
   return (

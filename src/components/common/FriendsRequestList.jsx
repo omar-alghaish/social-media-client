@@ -1,35 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import MainContainer from "./MainContainer";
 import { Avatar, Button, Divider, Stack, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import userApi from "../../api/modules/userApi";
 
 const FriendsRequestList = () => {
-  const { user } = useSelector((state) => state.user);
-
   const navigate = useNavigate();
   const [friendrequests, setFriendrequests] = useState();
-  const [toggle, setToggle] =useState(false)
+  const [toggle, setToggle] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   const handleAcceptRequest = async (id) => {
     const { response, error } = await userApi.acceptFriend({ id });
-    setToggle(false)
+    setToggle(false);
   };
 
   useEffect(() => {
-    const getFriendRequests =async()=>{
+    const getFriendRequests = async () => {
       const { response, error } = await userApi.getFriendRequests();
-    setFriendrequests(response?.data);
-    console.log(response)
-    setIsLoading(false);
-    }
-    getFriendRequests()
-    setToggle(true)
+      setFriendrequests(response?.data);
+      setIsLoading(false);
+    };
+    getFriendRequests();
+    setToggle(true);
   }, [toggle]);
 
-  console.log(friendrequests);
   return (
     <MainContainer>
       <Stack direction="row">

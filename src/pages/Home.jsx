@@ -69,7 +69,7 @@ const Home = () => {
 
           <HalfCircleMenue />
           {data?.map((post, index) => (
-            <Post data={post} key={post._id} />
+            <Post data={post} key={post?._id} />
           ))}
         </Stack>
       )}

@@ -11,9 +11,9 @@ const userEndpoints = {
   getInfo: "info",
   searchUsers: "users",
   addFriend: "users/addFriend",
-  acceptFriend:"users/acceptFriend",
-  follow:"users/follow",
-  friendRequests:"users/friendRequests"
+  acceptFriend: "users/acceptFriend",
+  follow: "users/follow",
+  friendRequests: "users/friendRequests",
 };
 
 const userApi = {
@@ -107,25 +107,31 @@ const userApi = {
       return { error };
     }
   },
-  addFriend:async (values) => {
+  addFriend: async (values) => {
     try {
-      const response = await privateClient.post(userEndpoints.addFriend, values);
+      const response = await privateClient.post(
+        userEndpoints.addFriend,
+        values
+      );
       return { response };
     } catch (error) {
       return { error };
     }
   },
-  acceptFriend:async (values) => {
+  acceptFriend: async (values) => {
     try {
-      const response = await privateClient.post(userEndpoints.acceptFriend,values);
+      const response = await privateClient.post(
+        userEndpoints.acceptFriend,
+        values
+      );
       return { response };
     } catch (error) {
       return { error };
     }
   },
-  follow:async (values) => {
+  follow: async (values) => {
     try {
-      const response = await privateClient.post(userEndpoints.follow,values);
+      const response = await privateClient.post(userEndpoints.follow, values);
       return { response };
     } catch (error) {
       return { error };

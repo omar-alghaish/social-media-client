@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const TextWithTags = ({ text }) => {
   const hashtagRegex = /\B#\w\w+\b/g;
@@ -22,7 +22,6 @@ const TextWithTags = ({ text }) => {
     });
 
     mentions.forEach((mention) => {
-      // Extract user ID from the mention
       const userId = mention.substr(1);
       modifiedText = modifiedText.replace(
         mention,
@@ -30,10 +29,15 @@ const TextWithTags = ({ text }) => {
       );
     });
 
-    return <div className="text"dangerouslySetInnerHTML={{ __html: modifiedText }} />;
+    return (
+      <div
+        className="text"
+        dangerouslySetInnerHTML={{ __html: modifiedText }}
+      />
+    );
   };
 
-  return <div className='text'>{renderTextWithLinks()}</div>;
+  return <div className="text">{renderTextWithLinks()}</div>;
 };
 
 export default TextWithTags;

@@ -20,12 +20,9 @@ import ImagePlaceHolder from "./ImagePlaceHolder";
 import { Link, useNavigate } from "react-router-dom";
 
 const SignupForm = () => {
-  const navigate = useNavigate()
-  const [isLoginRequest, setIsLoginRequest] = useState(false);
+  const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  const theme = useTheme();
-
   const dispatch = useDispatch();
 
   const signupForm = useFormik({
@@ -33,7 +30,7 @@ const SignupForm = () => {
       name: "",
       email: "",
       phone: "",
-      about:"",
+      about: "",
       profileImg: null,
       password: "",
       passwordConfirm: "",
@@ -41,8 +38,7 @@ const SignupForm = () => {
     validationSchema: Yup.object({
       name: Yup.string().required("name is required"),
       email: Yup.string().email().required("email is required"),
-      // phone: Yup.string(),
-      about:Yup.string().max(240, 'bio must be at most 100 characters'),
+      about: Yup.string().max(240, "bio must be at most 100 characters"),
       password: Yup.string()
         .required("password required")
         .min(8, "password minum 8 charchters"),
@@ -61,7 +57,7 @@ const SignupForm = () => {
       if (response) {
         signupForm.resetForm();
         dispatch(setUser(response));
-        navigate(`/users/${response.data._id}`)
+        navigate(`/users/${response.data._id}`);
       }
       if (error) setErrorMessage(error.message);
     },
@@ -74,7 +70,6 @@ const SignupForm = () => {
       component="form"
       enctype="multipart/form-data"
       onSubmit={signupForm.handleSubmit}
-      // sx={{ justifyContent: "center" }}
     >
       <Stack
         direction="row"
@@ -122,20 +117,15 @@ const SignupForm = () => {
             signupForm.touched.phone && signupForm.errors.phone !== undefined
           }
         />
-          <TextField
+        <TextField
           type="text"
           id="about"
           multiline
           label="about"
           value={signupForm.values.about}
           onChange={signupForm.handleChange}
-          // helperText={signupForm.touched.about && signupForm.errors.about}
           helperText={`${remainingCharacters}/240`}
-          error={
-            // signupForm.touched.about && signupForm.errors.about !== undefined
-            remainingCharacters < 0 ?
-            `${remainingCharacters}/240` : false
-          }
+          error={remainingCharacters < 0 ? `${remainingCharacters}/240` : false}
         />
         <TextField
           type="password"
@@ -164,27 +154,6 @@ const SignupForm = () => {
             signupForm.errors.passwordConfirm !== undefined
           }
         />
-        {/* <Box
-          variant="text"
-          component="label"
-          sx={{
-            border: "solid ",
-            borderColor: "primary",
-          }}
-          style={{ cursor: "pointer" }}
-        >
-          profile image
-          <input
-            id="profileImg"
-            name="profileImg"
-            type="file"
-            hidden
-            accept="image/*"
-            onChange={(event) => {
-              signupForm.setFieldValue("profileImg", event.target.files[0]);
-            }}
-          />
-        </Box> */}
         <LoadingButton
           type="submit"
           fullWidth

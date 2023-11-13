@@ -33,15 +33,10 @@ import {
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 
-import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
-import PeopleIcon from "@mui/icons-material/People";
 import { useState } from "react";
 
 const ShareList = ({ shareOpen, handleShareOpen, data }) => {
-  const dispatch = useDispatch();
   const [isCopied, setIsCopied] = useState(false);
   const { user } = useSelector((state) => state.user);
 
@@ -69,11 +64,10 @@ const ShareList = ({ shareOpen, handleShareOpen, data }) => {
   const sharePost = async () => {
     try {
       if (navigator.share) {
-        // Use the Web Share API if available
         await navigator.share({
           title: data.userName,
           text: data.content,
-          url: shareUrl, // Replace with the actual URL
+          url: shareUrl,
         });
       }
     } catch (error) {
@@ -186,7 +180,6 @@ const ShareList = ({ shareOpen, handleShareOpen, data }) => {
             background: "transparent",
             boxShadow: "none",
             boxSizing: "border-box",
-            // height:"100%"
             width: "100%",
             display: "flex",
             alignItems: "center",

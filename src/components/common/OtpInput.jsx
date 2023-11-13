@@ -10,14 +10,10 @@ const OtpInput = () => {
     newOtp[index] = value;
     setOtp(newOtp);
 
-    // Handle focus and submission logic here if needed
     if (value && index < otp.length - 1) {
       document.getElementById(`otp-input-${index + 1}`).focus();
     }
-    console.log(otp)
-
   };
-  
 
   return (
     <Stack direction="row">
@@ -27,8 +23,8 @@ const OtpInput = () => {
           variant="outlined"
           margin="normal"
           sx={{
-            width:"50px",
-            height:"50px"
+            width: "50px",
+            height: "50px",
           }}
           type="text"
           autoFocus={index === 0}
@@ -41,7 +37,6 @@ const OtpInput = () => {
           onInput={(e) => handleChange(index, e.target.value)}
         />
       ))}
-      {/* You can add a button to submit the OTP */}
       <button onClick={() => console.log("OTP Entered:", otp.join(""))}>
         Submit OTP
       </button>

@@ -29,7 +29,6 @@ const Reactions = ({ post }) => {
     setShowReactions(false);
   };
 
-
   useEffect(() => {
     if (post.reactions?.haha?.users.includes(user?._id)) {
       setReact("haha");
@@ -59,7 +58,6 @@ const Reactions = ({ post }) => {
       { reactionType },
       post._id
     );
-    console.log(response)
   };
 
   return (
@@ -76,8 +74,6 @@ const Reactions = ({ post }) => {
         startIcon={
           react ? (
             <img
-            
-           
               style={{ width: "30px" }}
               src={
                 react === "like"
