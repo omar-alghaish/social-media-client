@@ -1,0 +1,32 @@
+  .bottombar {
+      display: flex;
+      z-index: 111;
+      width: 700px;
+      height: 60px;
+      align-items: center;
+      justify-content: space-between;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0 10px;
+
+
+  }
+
+  @media screen and (max-width: 1000px) {
+      .sidebar {
+          position: absolute;
+          width: 0;
+          overflow: hidden;
+
+      }
+  }
+
+  @media screen and (max-width: 1000px) {
+      .bottombar {
+          display: none;
+          overflow: hidden;
+          width: 100%;
+          margin-left: 0;
+      }
+  }

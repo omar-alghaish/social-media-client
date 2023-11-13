@@ -1,0 +1,131 @@
+.reals {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 450px !important;
+  max-width: 100% !important;
+  height: 100vh;
+}
+
+.reals-page {
+  width: 100%;
+}
+
+.real-swiper-slide {
+  justify-content: center !important;
+  position: relative;
+  display: flex !important;
+  align-items: center;
+  overflow: hidden;
+}
+
+.real {
+  width: 300px;
+  height: 100vh;
+  width: 450px;
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  z-index: 100000000;
+
+  .video-background-container {
+    position: relative;
+    height: 100%;
+    width: max-content;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+  }
+
+  .video-real-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.564);
+    backdrop-filter: blur(20px);
+  }
+
+  .play-button {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 20px;
+    font-size: 36px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .play-button.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .icon-list {
+    position: absolute;
+    right: 0;
+    bottom: 40%;
+    z-index: 4;
+    gap: 20px;
+
+    .icon-button {
+      font-size: 30px;
+      color: white;
+    }
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .icon-list.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .content {
+    padding: 10px;
+    padding-bottom: 20px;
+    width: 100%;
+    position: absolute;
+    z-index: 4;
+    bottom: 0px;
+    left: 0;
+    gap: 10px;
+    background: linear-gradient(0deg, black 50%, rgba(255, 255, 255, 0));
+
+    .real-text {
+      padding-right: 20px;
+    }
+
+    .real-text.expanded {
+      max-height: 300px;
+      overflow: scroll;
+
+      &::-webkit-scrollbar {
+        width: 0;
+      }
+    }
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .content.show {
+    opacity: 1;
+    visibility: visible;
+  }
+}

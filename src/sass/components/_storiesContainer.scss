@@ -1,0 +1,30 @@
+.stories-container {
+  margin-top: 50px;
+  margin-bottom: 10px !important;
+  padding: 0 10px !important;
+  .story-slide-swiper {
+    width: 130px;
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: linear-gradient(0deg, black, rgba(0, 0, 0, 0.352));
+    }
+
+    .story-user-profile {
+      position: absolute;
+      z-index: 1;
+      left: 10px;
+      bottom: 10px;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+}

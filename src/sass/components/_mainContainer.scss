@@ -1,0 +1,37 @@
+.main-container {
+  .post {
+    padding: 10px 0;
+    padding-top: 20px;
+
+    .postImg {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .text {
+      padding: 0 5px;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .main-container {
+    padding: 0 !important;
+    margin-top: 20px;
+    max-width: 100%;
+
+    .post {
+      padding: 10px 0;
+      padding-top: 20px;
+
+      .postImg {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .text {
+        padding: 0 5px;
+      }
+    }
+  }
+}
