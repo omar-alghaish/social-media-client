@@ -1,23 +1,10 @@
-import { LoadingButton } from "@mui/lab";
-import {
-  Avatar,
-  Box,
-  Divider,
-  IconButton,
-  Modal,
-  Stack,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Avatar, Box, Stack, Typography } from "@mui/material";
 import { useFormik } from "formik";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import * as Yup from "yup";
 import postApi from "../../api/modules/postApi";
-import SendIcon from "@mui/icons-material/Send";
 import Comment from "./Comment";
-import Reaction1 from "./Reaction1";
-import Reactions from "./Reactions";
 
 const CommentsContainer = ({ comments, post }) => {
   const { user } = useSelector((state) => state.user);
@@ -59,7 +46,6 @@ const CommentsContainer = ({ comments, post }) => {
             </Stack>
             <Stack></Stack>
           </Stack>
-     
         </Box>
       ))}
 
