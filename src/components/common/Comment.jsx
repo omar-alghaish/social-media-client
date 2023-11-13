@@ -26,12 +26,7 @@ const Comment = ({ commentForm }) => {
           value={commentForm.values.text}
           InputProps={{
             endAdornment: (
-              <IconButton
-                type="submit"
-                size="small"
-                variant="contained"
-                // loading={isLoading}
-              >
+              <IconButton type="submit" size="small" variant="contained">
                 <SendIcon />
               </IconButton>
             ),
