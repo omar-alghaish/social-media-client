@@ -1,7 +1,6 @@
-import React, { cloneElement, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   AppBar,
-  Avatar,
   Divider,
   IconButton,
   Slide,
@@ -13,16 +12,11 @@ import {
 } from "@mui/material";
 import SlideshowIcon from "@mui/icons-material/Slideshow";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import MenuIcon from '@mui/icons-material/Menu';
-import PeopleIcon from "@mui/icons-material/People";
+import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setThemeMode } from "../../redux/features/themeSlice";
-import { themeModes } from "../../configs/themeConfigs";
 import useSocketIo from "../../hooks/useSocketio";
 import { setSideBarOpen } from "../../redux/features/sideBar";
 
@@ -39,34 +33,30 @@ const HideOnScroll = ({ children, window }) => {
   );
 };
 
-
-
 const BottomBar = () => {
   const { user } = useSelector((state) => state.user);
 
   const { themeMode } = useSelector((state) => state.themeMode);
   const theme = useTheme();
   const dispatch = useDispatch();
-const handleClick = ()=>{
-    dispatch(setSideBarOpen(true))
-
-}
+  const handleClick = () => {
+    dispatch(setSideBarOpen(true));
+  };
 
   const [notificationsLength, setNotificationsLength] = useState(0);
   const { socket } = useSocketIo();
-  const id = user?._id; // the user id
+  const id = user?._id;
   useEffect(() => {
     let timer;
     socket?.on("connect", () => {
       socket.emit("setUserId", id);
-      // Getting first notifications length
       socket.emit("getNotificationsLength", id);
       socket?.on("notificationsLength", (data) => {
         setNotificationsLength(data);
       });
       timer = setTimeout(() => {
         socket.emit("getNotificationsLength", id);
-      }, 2000); // run every 10 seconds
+      }, 2000);
       socket?.on("disconnect", () => {});
     });
 
@@ -78,11 +68,6 @@ const handleClick = ()=>{
     };
   }, [id, socket]);
 
-  const onSwitchTheme = () => {
-    const newTheme =
-      themeMode === themeModes.dark ? themeModes.light : themeModes.dark;
-    dispatch(setThemeMode(newTheme));
-  };
   return (
     <HideOnScroll>
       <AppBar
@@ -129,13 +114,11 @@ const handleClick = ()=>{
                 false
               )}
             </IconButton>
-           
+
             <IconButton component={Link} to="/reals">
               <SlideshowIcon />
             </IconButton>
-            <IconButton
-            onClick={handleClick}
-            >
+            <IconButton onClick={handleClick}>
               <MenuIcon />
             </IconButton>
           </Stack>
