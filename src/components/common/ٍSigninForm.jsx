@@ -52,7 +52,7 @@ const SigninForm = () => {
         dispatch(setUser(response));
         navigate(`/users/${response.data._id}`);
       }
-      if (error) setErrorMessage(error.message);
+      if (error) setErrorMessage(error.data.message);
     },
   });
 
