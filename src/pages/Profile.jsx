@@ -61,7 +61,7 @@ const Profile = () => {
       {isLoading ? (
         <ProfileCard />
       ) : (
-        <Box gap="10px" sx={{ maxWidth: "100%" }}>
+        <Box gap="10px" sx={{ maxWidth: "100%",width:"100%" }}>
           <Stack
             sx={{
               gap: "20px",
@@ -80,7 +80,7 @@ const Profile = () => {
                 position: "absolute",
                 width: "100%",
                 height: "100%",
-                background: `url(${data.profileImgUrl})`,
+                // background: `url(${data.profileImgUrl})`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
                 left: "0",

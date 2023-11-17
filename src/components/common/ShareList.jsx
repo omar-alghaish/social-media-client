@@ -143,7 +143,7 @@ const ShareList = ({ shareOpen, handleShareOpen, data }) => {
       </Stack>
       <Divider />
       <List>
-        {user._id !== data?.user ? (
+        {user?._id !== data?.user ? (
           <ListItemButton>
             <ListItemIcon>
               <CheckIcon sx={{ color: theme.palette.text.secondary }} />

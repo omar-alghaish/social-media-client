@@ -1,0 +1,15 @@
+.left-side-home-page{
+    background-color: red;
+    width: 300px;
+    height: max-content;
+    position: sticky;
+    top: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .left-side-home-page{
+    display: none;
+  }
+  }
+
+  

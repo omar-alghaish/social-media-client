@@ -10,6 +10,8 @@ import { Link } from "react-router-dom";
 import StoriesContainer from "../components/common/StoriesContainer";
 import TobBar from "../components/common/TobBar";
 import ShareList from "../components/common/ShareList";
+import { Box } from "@mui/system";
+import HomeRightSide from "../components/common/HomeRightSide";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -65,12 +67,19 @@ const Home = () => {
           <TobBar />
           <StoriesContainer />
           <ShareList />
-          <InitPost />
 
           <HalfCircleMenue />
-          {data?.map((post, index) => (
-            <Post data={post} key={post?._id} />
-          ))}
+          <Stack direction="row" gap="10px">
+            <HomeRightSide />
+
+            <Box>
+              <InitPost />
+              {data?.map((post, index) => (
+                <Post data={post} key={post?._id} />
+              ))}
+            </Box>
+            <Box className="left-side-home-page">sss</Box>
+          </Stack>
         </Stack>
       )}
     </MainContainer>

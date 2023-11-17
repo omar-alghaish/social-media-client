@@ -4,6 +4,8 @@ a {
 
 .post {
   margin: 5px 0;
+  width: 700px;
+  max-width: 100%;
 }
 
 .postImg {
@@ -448,6 +450,12 @@ a {
   gap: 10px;
 }
 
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
 .main-container .post {
   padding: 10px 0;
   padding-top: 20px;
@@ -460,7 +468,7 @@ a {
   padding: 0 5px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .main-container {
     padding: 0 !important;
     margin-top: 20px;
@@ -469,6 +477,7 @@ a {
   .main-container .post {
     padding: 10px 0;
     padding-top: 20px;
+    width: 100%;
   }
   .main-container .post .postImg {
     width: 100%;
@@ -623,6 +632,20 @@ a {
   height: 50px;
 }
 
+.left-side-home-page {
+  background-color: red;
+  width: 300px;
+  height: -moz-max-content;
+  height: max-content;
+  position: sticky;
+  top: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .left-side-home-page {
+    display: none;
+  }
+}
 .bottombar {
   display: flex;
   z-index: 111;
