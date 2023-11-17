@@ -11,7 +11,7 @@ import StoriesContainer from "../components/common/StoriesContainer";
 import TobBar from "../components/common/TobBar";
 import ShareList from "../components/common/ShareList";
 import { Box } from "@mui/system";
-import HomeRightSide from "../components/common/HomeRightSide";
+import HomeLeftSide from "../components/common/HomeLeftSide";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -70,7 +70,7 @@ const Home = () => {
 
           <HalfCircleMenue />
           <Stack direction="row" gap="10px">
-            <HomeRightSide />
+            <HomeLeftSide />
 
             <Box>
               <InitPost />

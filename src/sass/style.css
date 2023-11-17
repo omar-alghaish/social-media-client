@@ -633,12 +633,23 @@ a {
 }
 
 .left-side-home-page {
-  background-color: red;
   width: 300px;
   height: -moz-max-content;
   height: max-content;
   position: sticky;
   top: 0;
+}
+.left-side-home-page .img-cover {
+  width: 100%;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 20px;
+}
+.left-side-home-page .img-profile {
+  width: 100px;
+  height: 100px;
+  top: -50px;
 }
 
 @media screen and (max-width: 800px) {
