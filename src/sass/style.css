@@ -654,7 +654,12 @@ a {
 }
 
 .right-side-home-page {
-  background: "red";
+  background: red;
+  height: 90vh;
+  position: sticky;
+  top: 0;
+  width: 300px;
+  border-radius: 20px;
 }
 
 @media screen and (max-width: 800px) {
