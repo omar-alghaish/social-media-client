@@ -47,6 +47,8 @@ const Reactions = ({ post }) => {
     } else if (post.reactions?.lying?.users.includes(user?._id)) {
       setReact("lying");
     }
+    console.log(react)
+
   }, []);
 
   const handleReaction = async (reactionType) => {

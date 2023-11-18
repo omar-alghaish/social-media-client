@@ -647,9 +647,14 @@ a {
   border-radius: 20px;
 }
 .left-side-home-page .img-profile {
+  position: absolute;
   width: 100px;
   height: 100px;
   top: -50px;
+}
+
+.right-side-home-page {
+  background: "red";
 }
 
 @media screen and (max-width: 800px) {

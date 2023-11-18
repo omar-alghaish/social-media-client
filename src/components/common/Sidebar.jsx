@@ -25,6 +25,7 @@ import PeopleIcon from "@mui/icons-material/People";
 import { themeModes } from "../../configs/themeConfigs";
 import { setThemeMode } from "../../redux/features/themeSlice";
 import { setSideBarOpen } from "../../redux/features/sideBar";
+import HomeLeftSide from "./HomeLeftSide";
 
 const Sidebar = () => {
   const dispatch = useDispatch();

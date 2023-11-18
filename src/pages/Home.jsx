@@ -3,7 +3,7 @@ import MainContainer from "../components/common/MainContainer";
 import InitPost from "../components/common/InitPost";
 import Post from "../components/common/Post";
 import postApi from "../api/modules/postApi";
-import { Alert, Button, Stack } from "@mui/material";
+import { Alert, Button, Stack, useMediaQuery } from "@mui/material";
 import LoadingPage from "../components/common/LoadingPage";
 import HalfCircleMenue from "../components/common/HalfCircleMenue";
 import { Link } from "react-router-dom";
@@ -12,11 +12,14 @@ import TobBar from "../components/common/TobBar";
 import ShareList from "../components/common/ShareList";
 import { Box } from "@mui/system";
 import HomeLeftSide from "../components/common/HomeLeftSide";
+import HomeRightSide from "../components/common/HomeRightSide";
 
 const Home = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
+  const isSmallScreen = useMediaQuery("(max-width:900px)");
+
   useEffect(() => {
     const getPosts = async () => {
       const { response, error } = await postApi.getFriendsPosts();
@@ -34,6 +37,7 @@ const Home = () => {
     getPosts();
   }, []);
   return (
+    
     <MainContainer>
       {loading ? (
         <Stack>
@@ -78,7 +82,7 @@ const Home = () => {
                 <Post data={post} key={post?._id} />
               ))}
             </Box>
-            <Box className="left-side-home-page">sss</Box>
+            <HomeRightSide />
           </Stack>
         </Stack>
       )}
