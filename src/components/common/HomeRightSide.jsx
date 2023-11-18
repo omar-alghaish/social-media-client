@@ -1,4 +1,4 @@
-import { Divider, Typography } from "@mui/material";
+import { Button, Divider, Typography } from "@mui/material";
 import { Box, Stack, useTheme } from "@mui/system";
 import React from "react";
 
@@ -29,26 +29,38 @@ const HomeRightSide = () => {
         trending in egypt
       </Typography>
       <Stack>
-      <Box sx={{p:"10px"}}>
-          <Typography>#web</Typography>
+        <Box sx={{ p: "10px" }}>
+          <Typography>1- #web</Typography>
           <Typography
             sx={{ color: "text.secondary", fontSize: "13px" }}
             variant="body2"
           >
             26.2k Post
           </Typography>
-          <Divider sx={{p:"5px"}}/>
+          <Divider sx={{ p: "5px" }} />
         </Box>
-        <Box sx={{p:"10px"}}>
-          <Typography>#ReactJs</Typography>
+        <Box sx={{ p: "10px" }}>
+          <Typography>2- #ReactJs</Typography>
+          <Typography
+            sx={{ color: "text.secondary", fontSize: "13px" }}
+            variant="body2"
+          >
+          26.2k Post
+          </Typography>
+          <Divider sx={{ p: "5px" }} />
+        </Box>
+        <Box sx={{ p: "10px" }}>
+          <Typography>3- #web</Typography>
           <Typography
             sx={{ color: "text.secondary", fontSize: "13px" }}
             variant="body2"
           >
             26.2k Post
           </Typography>
-          <Divider sx={{p:"5px"}}/>
+          {/* <Divider sx={{ p: "5px" }} /> */}
         </Box>
+        <Button>See all</Button>
+
       </Stack>
     </Box>
   );

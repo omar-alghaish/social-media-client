@@ -8,7 +8,7 @@ const HomeLeftSide = () => {
   const { user } = useSelector((state) => state.user);
   const theme = useTheme();
   return (
-    <Box className="left-side-home-page">
+    <Stack className="left-side-home-page" gap="10px">
       <Box
         sx={{
           width: "100%",
@@ -23,6 +23,7 @@ const HomeLeftSide = () => {
           <Stack direction="row" position="relative">
             <Avatar className="img-profile" src={user?.profileImgUrl}></Avatar>
             <Typography
+            textTransform="uppercase"
               variant="subtitle1"
               sx={{ m: "10px", marginLeft: "110px" }}
             >
@@ -30,28 +31,31 @@ const HomeLeftSide = () => {
             </Typography>
           </Stack>
         </Stack>
-        <Stack sx={{ paddingY: "20px" }}>
-          <Stack direction="row" gap="10px">
-            <Typography sx={{ color: "text.secondary" }}>
-              {user?.email}
-            </Typography>
-          </Stack>
-          <Stack direction="row" gap="10px">
+        <Stack sx={{ paddingY: "20px" }} direction="row">
+        
+          <Button direction="row" gap="10px">
             <Typography>followers </Typography>
             <Typography sx={{ color: "text.secondary" }}>
               {user?.followers.length}
             </Typography>
-          </Stack>
-          <Stack direction="row" gap="10px">
+          </Button>
+          <Button direction="row" gap="10px">
             <Typography>following </Typography>
             <Typography sx={{ color: "text.secondary" }}>
               {user?.following.length}
             </Typography>
-          </Stack>
+          </Button>
         </Stack>
         <Button component={Link}  to={user ? `users/${user._id}` : `signin`} fullWidth variant="contained" sx={{borderRadius:"20px"}}>Profile</Button>
       </Box>
-    </Box>
+      <Box className="friends-recommend" 
+        sx={{
+          
+          background: theme.palette.background.paper,
+        }}>
+          <Typography textTransform="uppercase">Suggust for you</Typography>
+      </Box>
+    </Stack>
   );
 };
 

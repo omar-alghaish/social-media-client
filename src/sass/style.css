@@ -6,6 +6,7 @@ a {
   margin: 5px 0;
   width: 700px;
   max-width: 100%;
+  border-radius: 20px;
 }
 
 .postImg {
@@ -652,17 +653,26 @@ a {
   height: 100px;
   top: -50px;
 }
+.left-side-home-page .friends-recommend {
+  height: 200px;
+  width: 100%;
+  padding: 10px;
+  padding-bottom: 20px;
+  border-radius: 20px;
+}
 
 .right-side-home-page {
-  height: 90vh;
   position: sticky;
   top: 0;
   width: 300px;
   border-radius: 20px;
+  height: -moz-max-content;
+  height: max-content;
 }
 
 @media screen and (max-width: 800px) {
-  .left-side-home-page {
+  .left-side-home-page,
+  .right-side-home-page {
     display: none;
   }
 }

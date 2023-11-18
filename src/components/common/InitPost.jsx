@@ -19,6 +19,7 @@ const InitPost = () => {
         padding: "20px",
         background: theme.palette.background.paper,
         gap: "15px",
+        borderRadius:"20px"
       }}
       onClick={handleClick}
     >

@@ -16,17 +16,24 @@
     height: 100px;
     top: -50px;
   }
+  .friends-recommend {
+    height: 200px;
+    width: 100%;
+    padding: 10px;
+    padding-bottom: 20px;
+    border-radius: 20px;
+  }
 }
-.right-side-home-page{
-height: 90vh;
-position: sticky;
-top: 0;
-width: 300px;
-border-radius: 20px;
-
+.right-side-home-page {
+  position: sticky;
+  top: 0;
+  width: 300px;
+  border-radius: 20px;
+  height: max-content;
 }
 @media screen and (max-width: 800px) {
-  .left-side-home-page {
+  .left-side-home-page,
+  .right-side-home-page {
     display: none;
   }
 }
