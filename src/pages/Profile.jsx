@@ -12,6 +12,9 @@ import { useSelector } from "react-redux";
 import ProfileCard from "../components/common/ProfileCard";
 import HalfCircleMenue from "../components/common/HalfCircleMenue";
 import InitPost from "../components/common/InitPost";
+import ProfileLeftSide from "../components/common/ProfileLeftSide";
+import ProfileRightSide from "../components/common/ProfileRightSide";
+import MainProfile from "../components/common/MainProfile";
 
 const Profile = () => {
   const [active, setActive] = useState("postes");
@@ -59,6 +62,13 @@ const Profile = () => {
   }, []);
   return (
     <>
+    <MainContainer>
+      <Stack direction="row">
+  <ProfileLeftSide />
+  <MainProfile data={data}/>
+  <ProfileRightSide/>
+</Stack>
+    </MainContainer>
 
 
 

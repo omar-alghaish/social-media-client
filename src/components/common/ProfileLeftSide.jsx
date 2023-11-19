@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const ProfileLeftSide = () => {
+const ProfileLeftSide = () => {
   return (
     <div>ProfileLeftSide</div>
   )
 }
+
+export default ProfileLeftSide
