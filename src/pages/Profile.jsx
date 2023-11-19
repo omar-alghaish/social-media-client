@@ -11,6 +11,7 @@ import postApi from "../api/modules/postApi";
 import { useSelector } from "react-redux";
 import ProfileCard from "../components/common/ProfileCard";
 import HalfCircleMenue from "../components/common/HalfCircleMenue";
+import InitPost from "../components/common/InitPost";
 
 const Profile = () => {
   const [active, setActive] = useState("postes");
@@ -58,7 +59,12 @@ const Profile = () => {
   }, []);
   return (
     <>
-      {isLoading ? (
+
+
+
+    
+    
+      {/* {isLoading ? (
         <ProfileCard />
       ) : (
         <Box gap="10px" sx={{ maxWidth: "100%",width:"100%" }}>
@@ -80,7 +86,6 @@ const Profile = () => {
                 position: "absolute",
                 width: "100%",
                 height: "100%",
-                // background: `url(${data.profileImgUrl})`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
                 left: "0",
@@ -201,7 +206,7 @@ const Profile = () => {
             )}
           </Stack>
           <MainContainer>
-            {/* {user._id === id ? <InitPost /> : false} */}
+            {user._id === id ? <InitPost /> : false}
             <Stack
               direction="row"
               gap="10px"
@@ -252,7 +257,7 @@ const Profile = () => {
           </MainContainer>
         </Box>
       )}
-      <HalfCircleMenue />
+      <HalfCircleMenue /> */}
     </>
   );
 };

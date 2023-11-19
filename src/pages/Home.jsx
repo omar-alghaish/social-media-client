@@ -37,7 +37,6 @@ const Home = () => {
     getPosts();
   }, []);
   return (
-    
     <MainContainer>
       {loading ? (
         <Stack>
@@ -74,7 +73,7 @@ const Home = () => {
 
           <HalfCircleMenue />
           <Stack direction="row" gap="10px">
-            <HomeLeftSide />
+            {!isSmallScreen && <HomeLeftSide />}
 
             <Box>
               <InitPost />

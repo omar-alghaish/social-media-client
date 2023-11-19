@@ -654,7 +654,6 @@ a {
   top: -50px;
 }
 .left-side-home-page .friends-recommend {
-  height: 200px;
   width: 100%;
   padding: 10px;
   padding-bottom: 20px;
@@ -670,10 +669,10 @@ a {
   height: max-content;
 }
 
-@media screen and (max-width: 800px) {
-  .left-side-home-page,
-  .right-side-home-page {
+@media screen and (max-width: 1000px) {
+  .left-side-home-page, .right-side-home-page {
     display: none;
+    overflow: hidden;
   }
 }
 .bottombar {

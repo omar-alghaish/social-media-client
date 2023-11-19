@@ -17,7 +17,6 @@
     top: -50px;
   }
   .friends-recommend {
-    height: 200px;
     width: 100%;
     padding: 10px;
     padding-bottom: 20px;
@@ -31,9 +30,10 @@
   border-radius: 20px;
   height: max-content;
 }
-@media screen and (max-width: 800px) {
-  .left-side-home-page,
-  .right-side-home-page {
+@media screen and (max-width: 1000px) {
+  .left-side-home-page,.right-side-home-page
+   {
     display: none;
+    overflow: hidden;
   }
 }

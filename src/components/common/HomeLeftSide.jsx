@@ -8,7 +8,7 @@ const HomeLeftSide = () => {
   const { user } = useSelector((state) => state.user);
   const theme = useTheme();
   return (
-    <Stack className="left-side-home-page" gap="10px">
+    <Stack className="left-side-home-page" gap="10px" >
       <Box
         sx={{
           width: "100%",
@@ -23,7 +23,7 @@ const HomeLeftSide = () => {
           <Stack direction="row" position="relative">
             <Avatar className="img-profile" src={user?.profileImgUrl}></Avatar>
             <Typography
-            textTransform="uppercase"
+              textTransform="uppercase"
               variant="subtitle1"
               sx={{ m: "10px", marginLeft: "110px" }}
             >
@@ -31,8 +31,10 @@ const HomeLeftSide = () => {
             </Typography>
           </Stack>
         </Stack>
-        <Stack sx={{ paddingY: "20px" }} direction="row">
-        
+        <Stack
+          sx={{ paddingY: "20px", justifyContent: "space-between" }}
+          direction="row"
+        >
           <Button direction="row" gap="10px">
             <Typography>followers </Typography>
             <Typography sx={{ color: "text.secondary" }}>
@@ -46,14 +48,114 @@ const HomeLeftSide = () => {
             </Typography>
           </Button>
         </Stack>
-        <Button component={Link}  to={user ? `users/${user._id}` : `signin`} fullWidth variant="contained" sx={{borderRadius:"20px"}}>Profile</Button>
+        <Button
+          component={Link}
+          to={user ? `users/${user._id}` : `signin`}
+          fullWidth
+          variant="contained"
+          sx={{ borderRadius: "20px" }}
+        >
+          Profile
+        </Button>
       </Box>
-      <Box className="friends-recommend" 
+      <Box
+        className="friends-recommend"
         sx={{
-          
           background: theme.palette.background.paper,
-        }}>
-          <Typography textTransform="uppercase">Suggust for you</Typography>
+        }}
+      >
+        <Typography textTransform="uppercase" sx={{ padding: "10px" }}>
+          Suggust for you
+        </Typography>
+
+        <Stack gap="10px">
+          <Stack
+            direction="row"
+            sx={{ alignItems: "center", justifyContent: "space-between" }}
+          >
+            <Stack direction="row" sx={{ alignItems: "center", gap: "10px" }}>
+              <Avatar></Avatar>
+              <Typography>{user?.name}</Typography>
+            </Stack>
+            <Button
+              variant="contained"
+              sx={{
+                borderRadius: "20px",
+              }}
+            >
+              Follow
+            </Button>
+          </Stack>
+
+          <Stack
+            direction="row"
+            sx={{ alignItems: "center", justifyContent: "space-between" }}
+          >
+            <Stack direction="row" sx={{ alignItems: "center", gap: "10px" }}>
+              <Avatar></Avatar>
+              <Typography>{user?.name}</Typography>
+            </Stack>
+            <Button
+              variant="contained"
+              sx={{
+                borderRadius: "20px",
+              }}
+            >
+              Follow
+            </Button>
+          </Stack>
+          <Stack
+            direction="row"
+            sx={{ alignItems: "center", justifyContent: "space-between" }}
+          >
+            <Stack direction="row" sx={{ alignItems: "center", gap: "10px" }}>
+              <Avatar></Avatar>
+              <Typography>{user?.name}</Typography>
+            </Stack>
+            <Button
+              variant="contained"
+              sx={{
+                borderRadius: "20px",
+              }}
+            >
+              Follow
+            </Button>
+          </Stack>
+          <Stack
+            direction="row"
+            sx={{ alignItems: "center", justifyContent: "space-between" }}
+          >
+            <Stack direction="row" sx={{ alignItems: "center", gap: "10px" }}>
+              <Avatar></Avatar>
+              <Typography>{user?.name}</Typography>
+            </Stack>
+            <Button
+              variant="contained"
+              sx={{
+                borderRadius: "20px",
+              }}
+            >
+              Follow
+            </Button>
+          </Stack>
+          <Stack
+            direction="row"
+            sx={{ alignItems: "center", justifyContent: "space-between" }}
+          >
+            <Stack direction="row" sx={{ alignItems: "center", gap: "10px" }}>
+              <Avatar></Avatar>
+              <Typography>{user?.name}</Typography>
+            </Stack>
+            <Button
+              variant="contained"
+              sx={{
+                borderRadius: "20px",
+              }}
+            >
+              Follow
+            </Button>
+          </Stack>
+        </Stack>
       </Box>
     </Stack>
   );
