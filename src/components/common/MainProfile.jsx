@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
 import {
@@ -15,11 +15,16 @@ import { useSelector } from "react-redux";
 import uiConfigs from "../../configs/ui.configs";
 import { useParams } from "react-router-dom";
 import userApi from "../../api/modules/userApi";
+import postApi from "../../api/modules/postApi";
+import Post from "./Post";
+import MainContainer from "./MainContainer";
 
 const MainProfile = ({ data }) => {
   const { user } = useSelector((state) => state.user);
   const [active, setActive] = useState("postes");
   const [isLoading, setIsLoading] = useState(true);
+  const [posts, setPosts] = useState([]);
+
   const { id } = useParams();
   const [isFollow, setIsFollow] = useState();
   const [isFriendRequest, setIsFriendRequest] = useState();
@@ -34,15 +39,23 @@ const MainProfile = ({ data }) => {
   };
 
   const handleFollow = async () => {
-    const { respond, error } = await userApi.follow({ id });
     setIsFollow(!isFollow);
-  };
-  //
 
+    const { respond, error } = await userApi.follow({ id });
+  };
+
+  useEffect(() => {
+    const getPosts = async () => {
+      const { response, error } = await postApi.getUserPosts(id);
+      setPosts(response?.data);
+    };
+
+    getPosts();
+  }, []);
   const theme = useTheme();
   const { themeMode } = useSelector((state) => state.themeMode);
   return (
-    <Box>
+    <Box sx={{ width: "600px", maxWidth: "100%" }}>
       <Box
         className="info-part"
         sx={{
@@ -64,7 +77,7 @@ const MainProfile = ({ data }) => {
             top: "0",
             background:
               themeMode === "dark"
-                ? `linear-gradient(to top, rgba(0,0,0,.9) 40%,rgba(0,0,0,0))`
+                ? `linear-gradient(to top, rgba(0,0,0) 40%,rgba(0,0,0,0))`
                 : `linear-gradient(to top, rgba(255,255,255) 40%,rgba(25,25,1,0))`,
           }}
         />
@@ -87,8 +100,8 @@ const MainProfile = ({ data }) => {
             <Avatar
               src={data.profileImgUrl}
               sx={{
-                width: "100px",
-                height: "100px",
+                width: "150px",
+                height: "150px",
                 border: "3px solid transparent",
               }}
             />
@@ -136,7 +149,7 @@ const MainProfile = ({ data }) => {
               <Typography variant="body2">Friends</Typography>
             </Box>
           </Stack>
-          <Stack sx={{ zIndex: "1", mt:"50px" }}>
+          <Stack sx={{ zIndex: "1", mt: "20px" }}>
             {user._id === id ? (
               <Button
                 sx={{
@@ -158,7 +171,9 @@ const MainProfile = ({ data }) => {
                   variant="contained"
                   onClick={handleFollow}
                 >
-                  {data?.followers?.includes(user._id) ? "unFollow" : "follow"}
+                  {data?.followers?.includes(user._id) || isFollow
+                    ? "unFollow"
+                    : "follow"}
                 </Button>
                 <Button
                   startIcon={<PersonAddAltIcon />}
@@ -192,6 +207,11 @@ const MainProfile = ({ data }) => {
           </Stack>
         </Stack>
       </Box>
+      <MainContainer>
+        {posts.map((post, index) => (
+          <Post data={post} />
+        ))}
+      </MainContainer>
     </Box>
   );
 };

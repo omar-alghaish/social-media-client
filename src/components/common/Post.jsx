@@ -51,7 +51,7 @@ const Post = ({ data, index, socket }) => {
     <Stack
       gap="10px"
       className="post"
-      sx={{ background: theme.palette.background.paper }}
+      // sx={{ background: theme.palette.background.paper }}
     >
       <Stack
         direction="row"
@@ -150,6 +150,7 @@ const Post = ({ data, index, socket }) => {
           share
         </Button>
       </Stack>
+      <Divider />
       <ShareList
         shareOpen={shareOpen}
         handleShareOpen={handleShareOpen}

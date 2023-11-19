@@ -17,7 +17,7 @@ const InitPost = () => {
       sx={{
         p: "10px",
         padding: "20px",
-        background: theme.palette.background.paper,
+        // background: theme.palette.background.paper,
         gap: "15px",
         borderRadius:"20px"
       }}

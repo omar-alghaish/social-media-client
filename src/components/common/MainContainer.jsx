@@ -6,7 +6,7 @@ const MainContainer = ({ children, className }) => {
   return (
     <Stack
       className={`${className} main-container`}
-      sx={{  pt: "20px", pb: "20px", left: 0 ,maxWidth:"100%"}}
+      sx={{ pt: "20px", pb: "20px", left: 0 }}
     >
       {children}
     </Stack>

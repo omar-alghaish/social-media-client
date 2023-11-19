@@ -38,3 +38,8 @@
   -webkit-line-clamp: 1000;
   -webkit-box-orient: horizontal;
 }
+@media screen and (max-width: 900px) {
+ .post{
+  border-radius: 0;
+ }
+}

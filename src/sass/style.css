@@ -37,6 +37,11 @@ a {
   -webkit-box-orient: horizontal;
 }
 
+@media screen and (max-width: 900px) {
+  .post {
+    border-radius: 0;
+  }
+}
 .rhap_controls-section {
   position: absolute;
   top: 50%;
@@ -455,6 +460,9 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 100%;
   width: 100%;
 }
 .main-container .post {
