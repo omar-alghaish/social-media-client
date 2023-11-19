@@ -26,10 +26,12 @@ import { themeModes } from "../../configs/themeConfigs";
 import { setThemeMode } from "../../redux/features/themeSlice";
 import { setSideBarOpen } from "../../redux/features/sideBar";
 import HomeLeftSide from "./HomeLeftSide";
+import { useState } from "react";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
   const { sideBarOpen } = useSelector((state) => state.sideBar);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
     dispatch(setSideBarOpen());

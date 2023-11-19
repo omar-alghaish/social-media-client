@@ -78,7 +78,7 @@ const ShareList = ({ shareOpen, handleShareOpen, data }) => {
   const drawer = (
     <Box
       sx={{
-        background: theme.palette.background.paper,
+        background: theme.palette.background.default,
         width: "400px",
         maxWidth: "100%",
         borderRadius: "20px 20px 0 0",
@@ -171,7 +171,6 @@ const ShareList = ({ shareOpen, handleShareOpen, data }) => {
         open={shareOpen}
         className="sidebar"
         sx={{
-          background: "red",
           position: "relative",
           width: "100vw",
           overflow: "hidden",
@@ -194,7 +193,7 @@ const ShareList = ({ shareOpen, handleShareOpen, data }) => {
       </SwipeableDrawer>
       <Backdrop
         sx={{
-          backdropFilter: "blur(12px)",
+          // backdropFilter: "blur(12px)",
           zIndex: (theme) => theme.zIndex.drawer,
         }}
         open={shareOpen}

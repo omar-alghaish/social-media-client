@@ -14,7 +14,7 @@ const Search = () => {
 
   return (
     <MainContainer>
-      <Stack sx={{ padding: "0 20px" }}>
+      <Stack sx={{ padding: "0 20px", width: "700px", maxWidth: "100%" }}>
         <TextField
           fullWidth
           id="outlined-search"
