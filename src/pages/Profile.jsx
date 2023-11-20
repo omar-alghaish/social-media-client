@@ -1,31 +1,13 @@
 import React, { useEffect, useState } from "react";
-import MainContainer from "../components/common/MainContainer";
-import {
-  Avatar,
-  Box,
-  Button,
-  Divider,
-  Stack,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
-import uiConfigs from "../configs/ui.configs";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
-import Post from "../components/common/Post";
+import { Stack, useMediaQuery } from "@mui/material";
+
 import { useParams } from "react-router-dom";
 import userApi from "../api/modules/userApi";
 import postApi from "../api/modules/postApi";
 import { useSelector } from "react-redux";
-import ProfileCard from "../components/common/ProfileCard";
-import HalfCircleMenue from "../components/common/HalfCircleMenue";
-import InitPost from "../components/common/InitPost";
-import ProfileLeftSide from "../components/common/ProfileLeftSide";
-import ProfileRightSide from "../components/common/ProfileRightSide";
 import MainProfile from "../components/common/MainProfile";
 
 const Profile = () => {
-  const [active, setActive] = useState("postes");
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
   const { user } = useSelector((state) => state.user);
@@ -34,21 +16,6 @@ const Profile = () => {
   const [isFriendRequest, setIsFriendRequest] = useState();
   const [posts, setPosts] = useState([]);
   const isSmallScreen = useMediaQuery("(max-width:900px)");
-
-  const handleActive = (e) => {
-    setActive(e.target.value);
-  };
-
-  const handleAddFriend = async () => {
-    const { respond, error } = await userApi.addFriend({ id });
-    setIsFriendRequest(!isFriendRequest);
-  };
-
-  const handleFollow = async () => {
-    const { respond, error } = await userApi.follow({ id });
-    setIsFollow(!isFollow);
-  };
-  //
 
   useEffect(() => {
     const getuser = async () => {
