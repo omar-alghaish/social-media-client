@@ -72,15 +72,12 @@ const Profile = () => {
   return (
     <>
       <>
-        <Stack direction="row" sx={{ width:"100%",justifyContent:"center"}}>
-          {!isSmallScreen && <ProfileLeftSide />}
-
+        <Stack direction="row" sx={{ width: "100%", justifyContent: "center" }}>
+          {/* {!isSmallScreen && <ProfileLeftSide />} */}
           <MainProfile data={data} />
           {!isSmallScreen && <ProfileRightSide />}
         </Stack>
       </>
-
-      
     </>
   );
 };
